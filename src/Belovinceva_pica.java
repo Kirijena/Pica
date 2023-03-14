@@ -1,9 +1,11 @@
+import javax.swing.JOptionPane;
 
 public class Belovinceva_pica {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		int choice = JOptionPane.showOptionDialog(null, "Atlasît darbîbu:", "Darbîba",
+				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
+				new String[]{"Pievienot jaunu pasûtîjumu", "Pasûtîjumu saraksts"}, "Pievienot jaunu pasûtîjumu");
 	}
 
 }
