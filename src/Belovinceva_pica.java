@@ -18,7 +18,10 @@ public class Belovinceva_pica {
 					null, piccNosak, piccNosak[0] );
 			String[] diameter = {"25 sm" , "35 sm" , "45 sm"};
 			int diameterIndex = JOptionPane.showOptionDialog(null, "Atlasît picas diametru", "Diametra izvçle", 
-					JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, diameter, diameter[0]); 
+					JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, diameter, diameter[0]);
+			String[] platumu = {"smalka", "bieza"};
+			int resnisIndex =  JOptionPane.showOptionDialog(null, "Izvçlies picas platumu", "platumu izvele", 
+					JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, platumu, platumu[0]);
 			break;
 			
 		case 1:
