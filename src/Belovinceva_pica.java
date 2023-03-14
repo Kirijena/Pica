@@ -13,7 +13,8 @@ public class Belovinceva_pica {
 			String email = JOptionPane.showInputDialog("Ievadît klienta e-pastu:");
 			String[] piccNosak = {"Margarita", "Djabola", "Èetri sieri", "Ar jûras veltçm", "Neapoles", "Kalcone"};
 			double[] piccCena = {2.30, 2.50, 4.20, 4.30, 3.10, 2.50};
-			
+			int piccIndex = JOptionPane.showOptionDialog(null, "Izvçlieties picu", "Picas izvçle",
+					JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, piccNosak, piccNosak[0] );
 			break;
 			
 		case 1:
