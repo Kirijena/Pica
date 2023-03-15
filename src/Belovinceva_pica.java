@@ -10,6 +10,9 @@ public class Belovinceva_pica {
 		case 0:
 			String nosauk = JOptionPane.showInputDialog("Ievadīt klienta nosaukumu:");
 			String taur = JOptionPane.showInputDialog("Ievadiet klienta tālruņa numuru:");
+//			if(taur<8){
+//				JOptionPane.showInputDialog("Taurina vajadz but ne maz ka 8 cipara!");
+//			}
 			String email = JOptionPane.showInputDialog("Ievadīt klienta e-pastu:");
 			String[] piccNosak = {"Margarita", "Djabola", "Četri sieri", "Ar jūras veltēm", "Neapoles", "Kalcone"};
 			double[] piccCena = {2.30, 2.50, 4.20, 4.30, 3.10, 2.50};
@@ -17,8 +20,14 @@ public class Belovinceva_pica {
 					JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
 					null, piccNosak, piccNosak[0] );
 			String[] diameter = {"25 sm" , "35 sm" , "45 sm"};
-			int diameterIndex = JOptionPane.showOptionDialog(null, "Atlasīt picas diametru", "Diametra izvēle", 
+			double[] diameterCena = {0, 0.30, 0.50};
+			int diameterIndex = JOptionPane.showOptionDialog(null, "Atlasīt picas diametru", "Diametra izvēle",
 					JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, diameter, diameter[0]);
+			String diameters = diameter[diameterIndex];
+			
+			
+			
+			
 			String[] platumu = {"smalka", "bieza"};
 			int resnisIndex =  JOptionPane.showOptionDialog(null, "Izvēlies picas platumu", "platumu izvele", 
 					JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, platumu, platumu[0]);
@@ -29,30 +38,28 @@ public class Belovinceva_pica {
 				noņemtGarnējumus = JOptionPane.showInputDialog("Ievadiet, kuras preces jānovāc:");
 				}
 			String piccNosakums = piccNosak[piccIndex];
-			double pizzCena = piccCena[piccIndex];
-			String diameters = diameter[diameterIndex];
+			double diameterPrice = diameterCena[diameterIndex];
+			double pizzCena = piccCena[piccIndex] + diameterPrice;
 			String platums = platumu[resnisIndex];
 			StringBuilder orderDetails = new StringBuilder();
 			orderDetails.append("Klientu vards: ").append(nosauk).append("\n");
-			orderDetails.append("Klientu tālruņa numuru: ").append(taur).append("\n");
+			orderDetails.append("Klientu tālruņa numuru: +371").append(taur).append("\n");
 			orderDetails.append("Klientu e-past: ").append(email).append("\n");
 			orderDetails.append("Picca: ").append(piccNosakums).append("\n");
 			orderDetails.append("Diameter: ").append(diameters).append("\n");
-			orderDetails.append("Cena: ").append(pizzCena).append(" евро\n");
+			orderDetails.append("Cena: ").append(pizzCena).append(" euro\n");
 			orderDetails.append("Platums: ").append(platums).append("\n");
 			if (noņemtGarnējumu) {
-				orderDetails.append("Novāktie produkti: ").append(noņemtGarnējumu).append("\n");
+				orderDetails.append("Novāktie produkti: ").append(noņemtGarnējumus).append("\n");
 				}
 			int saveChoice = JOptionPane.showConfirmDialog(null, orderDetails.toString() + "\nSaglabāt pasūtījumu?", "Pasūtījuma saglabāšana",
 					JOptionPane.YES_NO_OPTION);
 					if (saveChoice == JOptionPane.YES_OPTION) {
-					JOptionPane.showMessageDialog(null, "");
+					JOptionPane.showMessageDialog(null, "Pasūtījums saglabāts");
 					} else {
-					JOptionPane.showMessageDialog(null, "Заказ не сохранен");
+					JOptionPane.showMessageDialog(null, "Pasūtījums nav saglabāts");
 					}
 			break;
-			
-			
 		case 1:
 			
 			break;
