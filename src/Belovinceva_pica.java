@@ -5,12 +5,12 @@ import javax.swing.JOptionPane;
 public class Belovinceva_pica {
 
 	public static void main(String[] args) {
-		ArrayList orders = new ArrayList();
+		ArrayList<String> orders = new ArrayList<String>();
 		boolean exit = false;
 		while (!exit) {
 		int darbibas = JOptionPane.showOptionDialog(null, "Atlasīt darbību:", "Darbība",
 				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
-				new String[]{"Pievienot jaunu pasūtījumu", "Pasūtījumu saraksts"}, "Pievienot jaunu pasūtījumu");
+				new String[]{"Pievienot jaunu pasūtījumu", "Pasūtījumu saraksts", "Edienkarte" , "Iezet"}, "Pievienot jaunu pasūtījumu");
 		switch(darbibas){
 		case 0:
 			String nosauk = JOptionPane.showInputDialog("Ievadīt klienta nosaukumu:");
@@ -64,18 +64,51 @@ public class Belovinceva_pica {
 					} else {
 					JOptionPane.showMessageDialog(null, "Pasūtījums nav saglabāts");
 					}
-					String order = "Klients: " + nosauk + ", tālrunis: " + taur + 
-							", e-pasts: " + email + ", Pasūtījums: " + piccNosakums + 
+					String order = "Klients: " + nosauk + ", tālrunis: " + taur +
+							", e-pasts: " + email + ", Pasūtījums: " + piccNosakums +
 							", diametrs: " + diameters + ", platumu: " + platumu[resnisIndex] +
 							", noņemt garnējumus: " + (noņemtGarnējumus != null ? noņemtGarnējumus : "nav");
-					orders.add(order);
+							orders.add(orderDetails.toString());
 			break;
 		case 1:
-			
+			if (orders.isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Pasūtījumu saraksts ir tukšs!");
+				} else {
+				StringBuilder sb = new StringBuilder();
+				for (String o : orders) {
+				sb.append(o).append("\n");
+				}
+				JOptionPane.showMessageDialog(null, sb.toString());
+
+				}
 			break;
 			
+		case 2:
+			String[] menu = {"Margarita", "Djabola", "Četri sieri", "Ar jūras veltēm", "Neapoles", "Kalcone"};
+			String[] descriptions = {
+			"Tomātu mērce, mocarella, zaļumi",
+			"Tomātu mērce, siers, desa, sēnes, pipari",
+			"Tomātu mērce, mocarella, četras siera šķirnes",
+			"Tomātu mērce, mocarella, mīdijas, kalmāri, garneles",
+			"Tomātu mērce, mocarella, baziliks, olīveļļa",
+			"Tomātu mērce, mocarella, šampinjoni, sīpoli, desa"
+			};
+			int index = JOptionPane.showOptionDialog(null, "Izvēlieties pica", "Edienkarte", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, menu, menu[0]);
+			String description = descriptions[index];
+			JOptionPane.showMessageDialog(null, description);
+			
+			 break;
+			 
+			 
+		case 3:
+		    exit = true;
+		    break;
+
 		}
 	}
 
 }
 }
+
+
+
