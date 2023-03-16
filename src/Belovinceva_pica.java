@@ -1,8 +1,13 @@
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 public class Belovinceva_pica {
 
 	public static void main(String[] args) {
+		ArrayList orders = new ArrayList();
+		boolean exit = false;
+		while (!exit) {
 		int darbibas = JOptionPane.showOptionDialog(null, "Atlasīt darbību:", "Darbība",
 				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
 				new String[]{"Pievienot jaunu pasūtījumu", "Pasūtījumu saraksts"}, "Pievienot jaunu pasūtījumu");
@@ -15,12 +20,12 @@ public class Belovinceva_pica {
 //			}
 			String email = JOptionPane.showInputDialog("Ievadīt klienta e-pastu:");
 			String[] piccNosak = {"Margarita", "Djabola", "Četri sieri", "Ar jūras veltēm", "Neapoles", "Kalcone"};
-			double[] piccCena = {2.30, 2.50, 4.20, 4.30, 3.10, 2.50};
+			double[] piccCena = {2.30, 2.10, 4.20, 4.30, 3.10, 2.30};
 			int piccIndex = JOptionPane.showOptionDialog(null, "Izvēlieties picu", "Picas izvēle",
 					JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
 					null, piccNosak, piccNosak[0] );
 			String[] diameter = {"25 sm" , "35 sm" , "45 sm"};
-			double[] diameterCena = {0, 0.30, 0.50};
+			double[] diameterCena = {0, 0.20, 0.30};
 			int diameterIndex = JOptionPane.showOptionDialog(null, "Atlasīt picas diametru", "Diametra izvēle",
 					JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, diameter, diameter[0]);
 			String diameters = diameter[diameterIndex];
@@ -59,6 +64,11 @@ public class Belovinceva_pica {
 					} else {
 					JOptionPane.showMessageDialog(null, "Pasūtījums nav saglabāts");
 					}
+					String order = "Klients: " + nosauk + ", tālrunis: " + taur + 
+							", e-pasts: " + email + ", Pasūtījums: " + piccNosakums + 
+							", diametrs: " + diameters + ", platumu: " + platumu[resnisIndex] +
+							", noņemt garnējumus: " + (noņemtGarnējumus != null ? noņemtGarnējumus : "nav");
+					orders.add(order);
 			break;
 		case 1:
 			
@@ -67,4 +77,5 @@ public class Belovinceva_pica {
 		}
 	}
 
+}
 }
